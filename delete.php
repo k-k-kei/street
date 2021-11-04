@@ -6,6 +6,8 @@ require('database.php');
 
 $id = $_POST["id"];
 
+//idを指定して削除を実行
+//-------------------------------------------------------
 $sql = "SELECT * FROM court WHERE id=:id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)
@@ -27,3 +29,4 @@ if ($status==false) {
     redirect("backyard.php");
     exit();
 }
+//-------------------------------------------------------

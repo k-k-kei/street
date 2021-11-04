@@ -7,6 +7,7 @@ require('database.php');
 
 $id = $_GET["id"];
 
+//指定したidのデータを取得
 $sql = "SELECT * FROM court WHERE id=:id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -49,6 +50,11 @@ if ($status == false) {
     </div>
 
     <div class="main">
+        <!-- 
+            
+        詳細情報を表示
+    
+        -->
         <h1 class="text">詳細</h1>
         <div class="content">
             <div class="image">

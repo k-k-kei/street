@@ -28,6 +28,7 @@ $_SESSION['csrfToken'] = $csrfToken;
         <h1>ログイン</h1>
     </div>
 
+    <!-- ログインフォーム -->
     <form action="login_act.php" method="post">
         <div>ユーザーID</div><input type="text" name="loginId"><br>
         <div>パスワード</div><input type="password" name="loginPw"><br>

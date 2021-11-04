@@ -22,6 +22,7 @@ function redirect($file_name)
     exit();
 }
 
+//CSRF対策
 function csrf()
 {
     $TOKEN_LENGTH = 16;

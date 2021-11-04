@@ -20,6 +20,8 @@ $area = $_POST["area"];
 $station = $_POST["station"];
 $distance = $_POST["distance"];
 
+// 検索機能
+//コートの場所、駅、距離で絞り込み可能
 $sql = "SELECT * FROM court WHERE place LIKE '%".$area."%' AND station LIKE '%".$station."%' AND distance LIKE '%".$distance."%'";
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();

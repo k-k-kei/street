@@ -9,6 +9,8 @@ require('function.php');
     $loginId = $_POST['loginId'];
     $loginPw = $_POST['loginPw'];
 
+    // ログインidで空白を許可しないバリデーション
+    //CSRF対策
     if (!empty($_POST['loginId'])) {
         if ($_POST['csrfToken'] === $_SESSION['csrfToken']) {
             $sql = "SELECT * FROM users WHERE u_id=:loginId";
@@ -22,6 +24,7 @@ require('function.php');
 
             $val = $stmt->fetch();
 
+            // パスワードで空白を許可しないバリデーション
             if (password_verify($loginPw, $val["u_pw"]) === true) {
                 if ($val["id"] !="") {
                     $_SESSION["chk_ssid"] = session_id();

@@ -9,6 +9,8 @@ $area = $_POST["area"];
 $station = $_POST["station"];
 $distance = $_POST["distance"];
 
+// 検索機能
+//コートの場所、駅、距離で絞り込み可能
 $sql = "SELECT * FROM court WHERE place LIKE '%".$area."%' AND station LIKE '%".$station."%' AND distance LIKE '%".$distance."%'";
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
@@ -37,6 +39,11 @@ $_SESSION['csrfToken'] = $csrfToken;
     <div class="content">コート登録</div>
     <a href="index.php" class="back">メインへ戻る</a>
 
+    <!-- 
+        
+    コート登録フォーム
+
+    -->
     <form method="post" action="insert.php" enctype="multipart/form-data">
         <div class="form-box">
             <div>コート名：<input type="text" name="name"></div></br>
@@ -55,6 +62,11 @@ $_SESSION['csrfToken'] = $csrfToken;
         </div>
     </form>
 
+    <!-- 
+        
+    検索フォーム
+
+    -->
     <form action="" method="post">
         <div class="sort">
             <ul class="tab">

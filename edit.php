@@ -7,12 +7,15 @@ $area = $_POST["area"];
 $station = $_POST["station"];
 $distance = $_POST["distance"];
 
+// 検索機能
+//コートの場所、駅、距離で絞り込み可能
 $sql = "SELECT * FROM court WHERE place LIKE '%".$area."%' AND station LIKE '%".$station."%' AND distance LIKE '%".$distance."%'";
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 
 $id = $_GET["id"];
 
+// 編集対象のコートデータを取得
 $sql = "SELECT * FROM court WHERE id=:id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -42,6 +45,11 @@ if ($status == false) {
 
         <div class="content">編集</div>
 
+        <!-- 
+                
+        編集フォーム
+
+        -->
         <form method="post" action="update.php" enctype="multipart/form-data">
                 <div class="form-box">
                         <label>コート名：<input type="text" name="name"

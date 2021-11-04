@@ -4,13 +4,14 @@
 require('function.php');
 require('database.php');
 
-//画像アップロード時のファイル名を作成
+//アップロードされた画像データを取得
 $image = date('YmdHis') .$_FILES['image']['name'];
 move_uploaded_file($_FILES['image']['tmp_name'], './image/' . $image);
 
 //ファイル名を代入
 $img_url = './image/'.$image;
 
+// フォーム入力された値をそれぞれ変数に代入
 $id = $_POST["id"];
 $name = $_POST["name"];
 $place = $_POST["place"];
@@ -22,6 +23,7 @@ $facility = $_POST["facility"];
 $price = $_POST["price"];
 $url = $_POST["url"];
 
+// データを更新
 $sql = "UPDATE court SET name=:name, place=:place, station=:station, distance=:distance, starttime=:starttime, endtime=:endtime, facility=:facility, price=:price, url=:url WHERE id=:id";
 $update = $pdo->prepare($sql);
 $update->bindValue(':id', $id, PDO::PARAM_INT);  //Integer（数値の場合 PDO::PARAM_INT)

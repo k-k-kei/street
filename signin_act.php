@@ -10,13 +10,14 @@ $u_id = $_POST["u_id"];
 $u_pw = $_POST["u_pw"];
 $hash = password_hash($u_pw, PASSWORD_DEFAULT);
 
-//空白不可
+//空白を許可しないバリデーション
+//空白の場合は未ログインページへリダイレクトする
 if (!empty($_POST["u_name"] && $_POST["u_id"] && $_POST["u_pw"]) && mb_strlen($_POST["u_pw"]) >= 6) {
-    // トークン判定
+    // CSRF対策
     if ($_POST['csrfToken'] === $_SESSION['csrfToken']) {
-        //メアドかどうか判定
+        //メールアドレスかどうか判定
         if (filter_var($_POST["u_id"], FILTER_VALIDATE_EMAIL)) {
-            //u_idの重複判定
+            //idが現在保存されている全データと重複していないか判定
             $sql = "SELECT COUNT(*) AS cnt FROM users WHERE u_id=?";
             $stmt = $pdo->prepare($sql);
             $res = $stmt->execute(array($_POST["u_id"]));
@@ -31,6 +32,7 @@ if (!empty($_POST["u_name"] && $_POST["u_id"] && $_POST["u_pw"]) && mb_strlen($_
             $stmt->bindValue(':u_pw', $hash, PDO::PARAM_STR);  //Integer（数値の場合 PDO::PARAM_INT)
             $status = $stmt->execute();
 
+                //エラー処理
                 if ($status==false) {
                     $error = $stmt->errorInfo();
                     exit("SQLError:".$error[2]);

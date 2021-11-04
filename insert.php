@@ -5,9 +5,11 @@ session_start();
 require('function.php');
 require('database.php');
 
+//アップロードされた画像データを取得
 $image = date('YmdHis') .$_FILES['image']['name'];
 move_uploaded_file($_FILES['image']['tmp_name'], './image/' . $image);
 
+// フォーム入力の値を変数に格納
 $name = $_POST["name"];
 $place = $_POST["place"];
 $station = $_POST["station"];
@@ -19,6 +21,7 @@ $facility = $_POST["facility"];
 $price = $_POST["price"];
 $url = $_POST["url"];
 
+//CSRF対策、問題なければデータをデータベースへ保存
 if ($_POST['csrfToken'] === $_SESSION['csrfToken']) {
     $sql = "INSERT INTO court(name, place, station, distance, img_url, starttime, endtime, facility, price, url, created_date)VALUES(:name, :place, :station, :distance, :img_url, :starttime, :endtime, :facility, :price, :url, sysdate())";
     $stmt = $pdo->prepare($sql);
