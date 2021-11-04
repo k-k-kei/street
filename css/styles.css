@@ -1,0 +1,207 @@
+body{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+/* ヘッダー */
+.header{
+    height: 8vh;
+    align-items: center;
+}
+
+.header-bar{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+.nav{
+    display: flex;
+    font-weight: bold;
+}
+
+.nav-item{
+    margin: 0 20px;
+}
+
+.register{
+    display: flex;
+    font-weight: bold;
+}
+
+.signin{
+    margin: 0 10px;
+}
+
+.signin a{
+    color: black;
+}
+
+.login{
+    margin: 0 10px;
+}
+
+.login a{
+    color: black;
+}
+
+.logout a{
+    color: black;
+}
+
+/* ファーストビュー */
+.main{
+    height: 60vh;
+    display: flex;
+}
+
+.main-text{
+    width: 50%;
+    padding: 3vh;
+}
+
+.main-text h1{
+    font-size: 4vw;
+    font-weight: bold;
+    margin-top: 4vh;
+}
+
+.main-text p{
+    font-size: 2vw;
+    font-weight: bold;
+    margin-top: 3vh;
+    margin-bottom: 7vh;
+}
+
+.main-img{
+    width: 50%;
+    height: 100%;
+}
+
+.main-img img{
+    width: 100%;
+    height: auto;
+}
+
+/* 検索 */
+.tab-item{
+    display: flex;
+    font-size: 2vw;
+    margin: 2vh 0;
+}
+
+.tab-item select{
+    width: 20vw;
+}
+
+.label{
+    width: 15vw;
+}
+
+.inout-box{
+    display: flex;
+}
+
+.search{
+    display: inline-block;
+    width: 15vh;
+    margin: 0 auto;
+    margin-top: 3vh;
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #fff;
+    background-color: tomato;
+    border: none;
+    border-radius: 10px;
+}
+
+/* コートリスト */
+.content{
+    background-color: #f3f3f3;
+}
+
+.courtlist{
+    font-size: 2vw;
+    font-weight: bold;
+    text-align: center;
+    margin: 1vw;
+    padding: 20px 0;
+}
+
+
+.post{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f3f3f3;
+}
+
+.item{
+    width: 30%;
+    height: 60vh;
+    margin: 10px;
+    background-color: #fff;
+}
+
+.item-img{
+    width: 100%;
+    height: 70%;
+}
+
+.item-img img{
+    width: 100%;
+    height: 100%;
+}
+
+.item-title{
+    text-align: center;
+    font-size: 1.2vw;
+    font-weight: bold;
+    padding: 0.5vw;
+}
+
+.item-topic{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5vw;
+}
+
+.topic{
+    padding: 5px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    width: 25%;
+}
+
+.col1{
+    background-color: #43ead3;
+}
+
+.col2{
+    background-color: #195F99;
+}
+
+.col3{
+    background-color:  tomato;
+}
+
+.detail{
+    text-align: center;
+    margin: 1vh 0;
+}
+
+.detail a{
+    display: inline-block;
+    padding: 10px;
+    background-color:  grey;
+    border-radius: 10px;
+    color: #fff;
+}
